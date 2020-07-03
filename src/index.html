@@ -11,8 +11,19 @@
       <form>
         <div class="form-group">
           <input class="form-control usd" type="number" min="0.00" step="0.01" placeholder="USD">
+          <select class="form-control" id="currency-dropdown">
+            <option value="jpy">Japanese Yen - ¥</option>
+            <option value="eur">Euro - €</option>
+            <option value="krw">South Korean Won - ₩</option>
+            <option value="nzd">New Zealand Dollar - $</option>
+            <option value="cad">Canadian Dollar - $</option>
+          </select>
         </div>
+        <button type="button" class="btn btn-dark">Submit</button>
       </form>
+    </div>
+    <div class="output">
+
     </div>
   </body>
 </html>
