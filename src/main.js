@@ -21,25 +21,30 @@ const outputCurrency = (cur, currencyAmount) => {
   case "cad":
     $("#output").text(`That converts to $${currencyAmount} Canadian Dollars`);
     break;
+  default:
+    $("#output").text(`Sorry, that currency is not supported.`);
   }
 };
 
 $(document).ready(() => {
   $("#input").click(() => {
-    let currency;
     event.preventDefault();
     getCurrencyRates().then((data) => {
-      currency = new Currency(
-        parseFloat($("#usd").val()),
-        data.conversion_rates.JPY,
-        data.conversion_rates.EUR,
-        data.conversion_rates.KRW,
-        data.conversion_rates.NZD,
-        data.conversion_rates.CAD
-      );
-      
-      const currencyType = $("#currency-dropdown option:selected").val();
-      outputCurrency(currencyType, currency[currencyType]);
+      if (data.status !== 200) {
+        $("#output").text(`The request for currency rates failed with an error code ${data.status}`);
+      } else {
+        const currency = new Currency(
+          parseFloat($("#usd").val()),
+          data.body.conversion_rates.JPY,
+          data.body.conversion_rates.EUR,
+          data.body.conversion_rates.KRW,
+          data.body.conversion_rates.NZD,
+          data.body.conversion_rates.CAD
+        );
+        
+        const currencyType = $("#currency-dropdown option:selected").val();
+        outputCurrency(currencyType, currency[currencyType]);
+      }
     });
   });
 });
