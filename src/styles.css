@@ -9,3 +9,11 @@
 .dropdown-label {
   margin-bottom: 0px;
 }
+
+img {
+  max-width: 400px;
+}
+
+#output {
+  margin-top: 20px;
+}

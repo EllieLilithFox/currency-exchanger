@@ -7,19 +7,24 @@ import { Currency, getCurrencyRates } from "./currency-service.js";
 const outputCurrency = (cur, currencyAmount) => {
   switch (cur){
   case "jpy":
-    $("#output").text(`That converts to ¥${currencyAmount} Yen`);
+    $("#output").html(`<p>That converts to ¥${currencyAmount.toFixed(2)} Yen</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/1000_yen_banknote_2004.jpg">`);
     break;
   case "eur":
-    $("#output").text(`That converts to €${currencyAmount} Euro`);
+    $("#output").html(`<p>That converts to €${currencyAmount.toFixed(2)} Euro</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/EUR_100_obverse_%282002_issue%29.jpg">`);
     break;
   case "krw":
-    $("#output").text(`That converts to ₩${currencyAmount} Won`);
+    $("#output").html(`<p>That converts to ₩${currencyAmount.toFixed(2)} Won</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/10000_won_serieVI_obverse.jpeg">`);
     break;
   case "nzd":
-    $("#output").text(`That converts to $${currencyAmount} New Zealand Dollars`);
+    $("#output").html(`<p>That converts to $${currencyAmount.toFixed(2)} New Zealand Dollars</p>
+    <img src="https://upload.wikimedia.org/wikipedia/en/e/e0/NewZealandTwentyDollarNote1.png">`);
     break;
   case "cad":
-    $("#output").text(`That converts to $${currencyAmount} Canadian Dollars`);
+    $("#output").html(`<p>That converts to $${currencyAmount.toFixed(2)} Canadian Dollars</p>
+    <img src="https://upload.wikimedia.org/wikipedia/en/0/07/Canadian_%2420_note_specimen_-_face.png">`);
     break;
   default:
     $("#output").text(`Sorry, that currency is not supported.`);
@@ -41,7 +46,7 @@ $(document).ready(() => {
           data.body.conversion_rates.NZD,
           data.body.conversion_rates.CAD
         );
-        
+
         const currencyType = $("#currency-dropdown option:selected").val();
         outputCurrency(currencyType, currency[currencyType]);
       }
