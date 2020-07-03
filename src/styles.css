@@ -1,3 +1,11 @@
 .usd {
   width: 400px;
 }
+
+.currency-dropdown {
+  width: 400px;
+}
+
+.dropdown-label {
+  margin-bottom: 0px;
+}
