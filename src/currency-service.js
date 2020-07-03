@@ -10,16 +10,7 @@ export class Currency {
 }
 
 export const getCurrencyRates = async () => {
-  const response = await fetch(`https://v6.exchangerate-api./v6/${process.env.API_KEY}/latest/USD`)
-  .then(response => {
-    if (!response.ok) {
-      console.log(response.statusText);
-      throw new Error(response.statusText);
-    }
-    return response.json();
-  })
+  const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`);
   const data = await response.json();
   return data;
-  
-  
 }
