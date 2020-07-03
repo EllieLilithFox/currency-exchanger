@@ -34,17 +34,16 @@ Takes USD currency input and converts it to selected international currency
 
 ## Setup and Installation
 
-* Navigate to [Link](https://www.exchangerate-api.com/)
+* Navigate to [Exchangerate API](https://www.exchangerate-api.com/)
 * Input your email address to get your own API key
-* Navigate to [Link](https://www.npmjs.com/package/dotenv-webpack)
-* Follow installation instructions
-* Add .env file to project directory
-* Add your API key to your .env file (API_KEY = {YOUR_API_KEY})
-* Navigate to [Link](https://github.com/DeryckJackson/currency-exchanger)
+* Navigate to [Github Repo](https://github.com/DeryckJackson/currency-exchanger)
 * Click the green clone button to download the repo your Computer
 * Find the .zip file on your Computer
 * Unzip the file
 * Browse to _currency-exchanger_ directory
+* Run `npm install` in your console in the project directory
+* Add .env file to the project directory
+* Add your API key to your .env file (API_KEY = {YOUR_API_KEY})
 * Open _index.html_ in your browser
 
 ## Bugs
