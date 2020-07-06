@@ -37,6 +37,7 @@ $(document).ready(() => {
     getCurrencyRates().then((data) => {
       if (data.status !== 200) {
         $("#output").text(`The request for currency rates failed with an error code ${data.status}`);
+        return;
       } else {
         const currency = new Currency(
           parseFloat($("#usd").val()),
